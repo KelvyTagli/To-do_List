@@ -1,65 +1,79 @@
-`use client`;
-
-const todoinput = document.querySelector('#todo-input');
-const todobutton = document.querySelector('#todo-btn-add');
+const todoform = document.querySelector('#todo-form');
+const todoInput = document.querySelector('#todo-input');
+const todobtn = document.querySelector('#todo-btn');
+const editform = document.querySelector('#todo-edit');
+const editInput = document.querySelector('#edit-input');
+const cancelbtn = document.querySelector('#btn-cancel');
 const todolist = document.querySelector('#todo-list');
-const editform = document.querySelector('#edit-form');
-const editinput = document.querySelector('#edit-input');
-const btnCancel = document.querySelector('#btn-cancel');
 
-todobutton.addEventListener('click', (e) => {
-
+//eventos 
+todobtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const input = todoinput.value;
-
+    const input = todoInput.value;
     if (input) {
-        showTodoList(input);
-    }
-    else {
-        alert('Preencha o Campo para criar sua Task');
+        console.log(input);
+    } else {
+        alert('Preencha o campo de Adicione sua Tarefa');
     }
 
-    todoinput.value = "";
-    todoinput.focus();
+    todoInput.value = "";
+    todoInput.focus();
 });
 
 document.addEventListener('click', (e) => {
+    const targetEvent = e.target;
+    const parentEl = targetEvent.closest('div');
 
-    const targetEl = e.target;
-    const parentEl = targetEl.closest('div');
-
-    if(targetEl.classList.contains('finish-todo')) {
+    if (targetEvent.classList.contains('finish-todo')) {
         parentEl.classList.toggle('todo-done');
+    }
+
+    if (targetEvent.classList.contains('edit-todo')) {
+        toggleEdit();
+    }
+
+    if (targetEvent.classList.contains('remove-todo')) {
+        parentEl.remove();
     }
 });
 
-//funções
+cancelbtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleEdit();
+})
 
-const showTodoList = (text) => {
+//Função
+const savetodo = (text) => {
 
     const todo = document.createElement('div');
     todo.classList.add('todo');
 
-    const todoTitle = document.createElement("h3");
-    todoTitle.classList.add('title');
-    todoTitle.innerText = text;
-    todo.appendChild(todoTitle);
+    const todotitle = document.createElement('h3');
+    todotitle.classList.add('todo-title');
+    todotitle.innerText = text;
+    todo.appendChild(todotitle);
 
-    const btnFinish = document.createElement("button");
-    btnFinish.classList.add('finish-todo');
-    btnFinish.innerHTML = '<i class="material-icons" style="font-size: medium;">check</i>';
-    todo.appendChild(btnFinish);
+    const btnfinish = document.createElement('button');
+    btnfinish.classList.add('finish-todo');
+    btnfinish.innerHTML = '<i class="material-icons" style="font-size: small;">check</i>';
+    todo.appendChild(btnfinish);
 
-    const btnEdit = document.createElement("button");
-    btnEdit.classList.add('edit-todo');
-    btnEdit.innerHTML= '<i class="material-icons" style="font-size: medium;">create</i>';
-    todo.appendChild(btnEdit);
+    const btnedit = document.createElement('button');
+    btnedit.classList.add('edit-todo');
+    btnedit.innerHTML = '<i class="material-icons" style="font-size: small;">create</i>';
+    todo.appendChild(btnedit);
 
-    const btnRemove = document.createElement('button');
-    btnRemove.classList.add('remove-todo');
-    btnRemove.innerHTML = ` <i class="material-icons" style="font-size: medium;">clear</i>`;
-    todo.appendChild(btnRemove);
+    const btnremove = document.createElement('button');
+    btnremove.classList.add('remove-todo');
+    btnremove.innerHTML = '<i class="material-icons" style="font-size: small;">clear</i>';
+    todo.appendChild(btnremove);
 
     todolist.appendChild(todo);
-};
+}
+
+const toggleEdit = () => {
+    todoform.classList.toggle('hide');
+    editform.classList.toggle('hide');
+    todolist.classList.toggle('hide');
+}

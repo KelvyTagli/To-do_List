@@ -16,20 +16,18 @@
         <form id="todo-form">
             <h3>Adicione sua tarefa</h3>
             <input type="text" id="todo-input" placeholder="O que você vai fazer ?">
-                <button type="submit" id="todo-btn-add">
+                <button type="submit" id="todo-btn">
                     <i class="material-icons" style="font-size: medium">add</i>
                 </button>
         </form>
-        <form id="todo-edit">
+        <form id="todo-edit" class="hide">
             <p>Edite sua tarefa:</p>
             <div id="form-control">
                 <input type="text" id="edit-input">
                 <button type="submit" id="edit-button">
                     <i class="material-icons" style="font-size: medium;">done_all</i>
                 </button>
-                <button id="btn-cancel">
-                    <i class="material-icons" style="font-size: medium;">clear</i>
-                </button>
+                <button id="btn-cancel">Cancel</button>
             </div>
         </form>
         <div id="toolbar">
@@ -52,7 +50,7 @@
             </div>
         </div>
         <div id="todo-list">
-            <!-- <div class="todo-done">
+            <div class="todo">
                 <h3>Estou fazendo alguma coisa...</h3>
                 <button class="finish-todo">
                     <i class="material-icons" style="font-size: small;">check</i>
@@ -63,19 +61,7 @@
                 <button class="remove-todo">
                     <i class="material-icons" style="font-size: small;">clear</i>
                 </button>
-            </div> -->
-            <!-- <div class="todo">
-                <h3>Estou fazendo alguma coisa...</h3>
-                <button class="finish-todo">
-                    <i class="material-icons" style="font-size: small;">check</i>
-                </button>
-                <button class="edit-todo">
-                    <i class="material-icons" style="font-size: small;">create</i>
-                </button>
-                <button class="remove-todo">
-                    <i class="material-icons" style="font-size: small;">clear</i>
-                </button>
-            </div> -->
+            </div>
         </div>
     </div>
 </body>

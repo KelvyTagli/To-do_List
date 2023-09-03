@@ -29,10 +29,13 @@ body {
 }
 
 #todo-edit {
-    display: none;
-    flex-direction: column;
     border-bottom: 1px solid #000;
     padding-bottom: 1rem;
+}
+
+#btn-cancel {
+    width: 100px;
+    height: 25px;
 }
 
 input {
@@ -45,9 +48,12 @@ input {
 }
 
 button, material-icons{
+    width: 40px;
+    padding: .2rem;
     padding-top: 4px;
     background-color: #fff;
     border: 1px solid #000;
+    border-radius: 4px;
 }
 
 button:hover {
@@ -73,12 +79,6 @@ button:hover {
 #filter {
     width: 7rem;
     height: 1.5rem;
-}
-
-#todo-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 }
 
 .todo-done {
@@ -108,4 +108,8 @@ button:hover {
     flex: 1;
     letter-spacing: 1px;
     pointer-events: none;
+}
+
+.hide {
+    display: none;
 }
