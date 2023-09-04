@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 420px;
-    width: 420px;
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0px 10px 20px -10px #000;
@@ -23,14 +23,19 @@ body {
     border-bottom: 1px solid #ccc;
 }
 
-#todo-form {
+#todo-form, #todo-edit {
     border-bottom: 1px solid #000;
     padding-bottom: 1rem;
 }
 
-#todo-edit {
-    border-bottom: 1px solid #000;
-    padding-bottom: 1rem;
+#form-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#edit-input {
+    width: 220px;
 }
 
 #btn-cancel {
